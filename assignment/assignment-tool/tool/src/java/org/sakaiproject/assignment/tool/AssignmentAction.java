@@ -7584,9 +7584,7 @@ public class AssignmentAction extends PagedResourceActionII
 		else
 		{
 			r = params.getString(NEW_ASSIGNMENT_REVIEW_SERVICE_ALLOW_ANY_FILE);
-			if (r == null) b = Boolean.FALSE.toString();
-			else b = Boolean.TRUE.toString();
-			state.setAttribute(NEW_ASSIGNMENT_REVIEW_SERVICE_ALLOW_ANY_FILE, b);
+			state.setAttribute(NEW_ASSIGNMENT_REVIEW_SERVICE_ALLOW_ANY_FILE, Boolean.toString(r != null));
 		}
 
 		//exclude type:
