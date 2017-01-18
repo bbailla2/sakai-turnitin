@@ -67,7 +67,7 @@ public abstract class BaseLTIService implements LTIService {
 	public final String LAUNCH_PREFIX = "/access/basiclti/site/";
 
 	/** Maps LTI Site Ids (as specified in External Tools) to their corresponding LTIRoleAdvisors */
-	private static final Map<String, LTIRoleAdvisor> roleAdvisors = new HashMap<String, LTIRoleAdvisor>();
+	private static final Map<String, LTIRoleAdvisor> roleAdvisors = new HashMap<>();
 
 	/** Resource bundle using current language locale */
 	protected static ResourceLoader rb = new ResourceLoader("ltiservice");

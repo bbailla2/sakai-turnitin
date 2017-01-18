@@ -462,21 +462,35 @@ public class SakaiBLTIUtil {
 		Map<String, String> roleMap = convertRoleMapPropToMap(roleMapProp);
 		if (!roleMap.isEmpty())
 		{
-			try {
+			try 
+			{
 				user = UserDirectoryService.getCurrentUser();
-				if ( user != null ) {
+				if ( user != null )
+				{
 					Role role = null;
 					String roleId = null;
 					AuthzGroup realm = ComponentManager.get(AuthzGroupService.class).getAuthzGroup(realmId);
-					if ( realm != null ) role = realm.getUserRole(user.getId());
-					if ( role != null ) roleId = role.getId();
-					if ( roleId != null && roleId.length() > 0 ) setProperty(props, "ext_sakai_role", roleId);
-					if ( roleMap.containsKey(roleId) ) {
+					if ( realm != null )
+					{
+						role = realm.getUserRole(user.getId());
+					}
+					if ( role != null )
+					{
+						roleId = role.getId();
+					}
+					if ( roleId != null && roleId.length() > 0 )
+					{
+						setProperty(props, "ext_sakai_role", roleId);
+					}
+					if ( roleMap.containsKey(roleId) )
+					{
 						setProperty(props, BasicLTIConstants.ROLES, roleMap.get(roleId));
 						setProperty(lti2subst, LTI2Vars.MEMBERSHIP_ROLE, roleMap.get(roleId));
 					}
 				}
-			} catch (GroupNotDefinedException e) {
+			}
+			catch (GroupNotDefinedException e)
+			{
 				dPrint("SiteParticipantHelper.getExternalRealmId: site realm not found"+e.getMessage());
 			}
 		}
