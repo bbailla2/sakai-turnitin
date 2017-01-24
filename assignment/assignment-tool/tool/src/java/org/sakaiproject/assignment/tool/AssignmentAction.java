@@ -9948,7 +9948,7 @@ public class AssignmentAction extends PagedResourceActionII
 			if (props != null)
 			{
 				String strResubmitCloseTime = props.getProperty(AssignmentSubmission.ALLOW_RESUBMIT_CLOSETIME);
-				if (!StringUtils.isEmpty(strResubmitCloseTime))
+				if (!StringUtils.isBlank(strResubmitCloseTime))
 				{
 					asnResubmitCloseTime = TimeService.newTime(Long.parseLong(strResubmitCloseTime));
 				}
@@ -17419,8 +17419,6 @@ public class AssignmentAction extends PagedResourceActionII
 							if (state.getAttribute(ALLOW_RESUBMIT_CLOSEYEAR) != null)
 							{
 								// get resubmit time
-								//Time closeTime = getTimeFromState(state, ALLOW_RESUBMIT_CLOSEMONTH, ALLOW_RESUBMIT_CLOSEDAY, ALLOW_RESUBMIT_CLOSEYEAR, ALLOW_RESUBMIT_CLOSEHOUR, ALLOW_RESUBMIT_CLOSEMIN);
-								//pEdit.addProperty(AssignmentSubmission.ALLOW_RESUBMIT_CLOSETIME, String.valueOf(closeTime.getTime()));
 								Time extension = getTimeFromState(state, ALLOW_RESUBMIT_CLOSEMONTH, ALLOW_RESUBMIT_CLOSEDAY, ALLOW_RESUBMIT_CLOSEYEAR, ALLOW_RESUBMIT_CLOSEHOUR, ALLOW_RESUBMIT_CLOSEMIN);
 								pEdit.addProperty(AssignmentSubmission.ALLOW_RESUBMIT_CLOSETIME, String.valueOf(extension.getTime()));
 
